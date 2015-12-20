@@ -27,14 +27,12 @@ class LoginViewController: UIViewController {
         
         if let username = emailTextField.text where username != "", let password = passwordTextField.text where password != "" {
             
-            activityIndicator.startAnimating()
-            loginStatusLabel.text = ""
-            signInButton.enabled = false
+            disableControls()
             
             Client.sharedInstance.login(username, password: password, completionHandler: { result, error in
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.activityIndicator.stopAnimating()
-                    self.signInButton.enabled = true
+                    
+                    self.enableControls()
                     
                     if let message = result["message"] as? String {
                         self.loginStatusLabel.text = message
@@ -54,6 +52,23 @@ class LoginViewController: UIViewController {
             loginStatusLabel.text = "Please fill the email and password."
         }
         
+    }
+    
+    /* turn off controls */
+    func disableControls() {
+        activityIndicator.startAnimating()
+        loginStatusLabel.text = ""
+        signInButton.enabled = false
+        emailTextField.enabled = false
+        passwordTextField.enabled = false
+    }
+    
+    /* enable controls */
+    func enableControls() {
+        self.activityIndicator.stopAnimating()
+        self.signInButton.enabled = true
+        self.emailTextField.enabled = true
+        self.passwordTextField.enabled = true
     }
     
 }
