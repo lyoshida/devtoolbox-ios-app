@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nAt-uW-Nkp" id="6RR-BU-phb">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -104,16 +104,30 @@
                                     <constraint firstItem="Vwf-E0-z0L" firstAttribute="centerX" secondItem="U30-jE-WnD" secondAttribute="centerX" id="mfW-oA-b7Y"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akX-Ww-AFQ">
+                                <rect key="frame" x="60" y="270" width="481" height="108"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="EIl-Jh-fhH">
+                                <rect key="frame" x="290" y="314" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1019607843" green="0.2156862745" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="akX-Ww-AFQ" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="IJC-YF-G9b"/>
+                            <constraint firstItem="akX-Ww-AFQ" firstAttribute="top" secondItem="U30-jE-WnD" secondAttribute="bottom" constant="18" id="Ucp-DV-qcf"/>
+                            <constraint firstItem="EIl-Jh-fhH" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="mgv-px-A6K"/>
                             <constraint firstItem="6v8-V9-6c3" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="nn0-LN-FgK"/>
                             <constraint firstItem="U30-jE-WnD" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="wxC-uQ-Bia"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="user" selectedImage="user" id="dcI-Cc-GhN"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="EIl-Jh-fhH" id="iZ5-YZ-Ie4"/>
                         <outlet property="emailTextField" destination="gZo-TL-zVQ" id="h1M-wM-oed"/>
+                        <outlet property="loginStatusLabel" destination="akX-Ww-AFQ" id="MbW-uk-ZpO"/>
                         <outlet property="passwordTextField" destination="Vwf-E0-z0L" id="jnl-7l-3JN"/>
                         <outlet property="signInButton" destination="EST-ZO-Rt3" id="Sju-7d-bHl"/>
                     </connections>
