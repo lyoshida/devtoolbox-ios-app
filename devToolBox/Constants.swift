@@ -12,8 +12,12 @@ extension Client {
     
     struct Constants {
         
-        var baseUrl: String = "https://www.devtoolbox.co/"
+        static let baseUrl: String = "https://www.devtoolbox.co/"
         
+    }
+    
+    struct Methods {
+        static var login: String = "auth/local"
     }
     
     

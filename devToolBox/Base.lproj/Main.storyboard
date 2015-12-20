@@ -8,7 +8,7 @@
         <!--Item-->
         <scene sceneID="Fk7-3f-XMo">
             <objects>
-                <viewController title="Favorites" id="HPO-Zy-mgo" userLabel="Item" sceneMemberID="viewController">
+                <viewController title="Favorites" id="HPO-Zy-mgo" userLabel="Item" customClass="ViewController" customModule="devToolBox" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C0c-Dd-Hzc"/>
                         <viewControllerLayoutGuide type="bottom" id="I2Y-mT-0c1"/>
@@ -56,12 +56,12 @@
         <!--Account-->
         <scene sceneID="xXZ-dK-heg">
             <objects>
-                <viewController title="Account" id="9oS-ff-0jv" sceneMemberID="viewController">
+                <viewController title="Account" id="9oS-ff-0jv" customClass="LoginViewController" customModule="devToolBox" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AR4-4f-u2g"/>
                         <viewControllerLayoutGuide type="bottom" id="glA-SX-EPR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Fr1-En-G5r">
+                    <view key="view" contentMode="scaleToFill" id="Fr1-En-G5r" customClass="login">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -80,6 +80,9 @@
                                         <state key="normal" title="Sign in">
                                             <color key="titleColor" red="0.1019607843" green="0.2156862745" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="login:" destination="9oS-ff-0jv" eventType="touchUpInside" id="bpY-TZ-yeS"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vwf-E0-z0L">
                                         <rect key="frame" x="20" y="62" width="315" height="30"/>
@@ -109,6 +112,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="user" selectedImage="user" id="dcI-Cc-GhN"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="gZo-TL-zVQ" id="h1M-wM-oed"/>
+                        <outlet property="passwordTextField" destination="Vwf-E0-z0L" id="jnl-7l-3JN"/>
+                        <outlet property="signInButton" destination="EST-ZO-Rt3" id="Sju-7d-bHl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbN-7a-rhW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
