@@ -12,7 +12,6 @@ class Client {
     
     var sharedContext = CoreDataStackManager.sharedInstance().managedObjectContext
     
-    
-    
     static let sharedInstance = Client()
+    
 }

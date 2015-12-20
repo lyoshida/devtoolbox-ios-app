@@ -64,13 +64,55 @@
                     <view key="view" contentMode="scaleToFill" id="Fr1-En-G5r">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6v8-V9-6c3">
+                                <rect key="frame" x="262" y="49" width="76" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U30-jE-WnD" userLabel="loginBoxView">
+                                <rect key="frame" x="123" y="89" width="355" height="166"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EST-ZO-Rt3">
+                                        <rect key="frame" x="145" y="112" width="65" height="30"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Sign in">
+                                            <color key="titleColor" red="0.1019607843" green="0.2156862745" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vwf-E0-z0L">
+                                        <rect key="frame" x="20" y="62" width="315" height="30"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gZo-TL-zVQ">
+                                        <rect key="frame" x="20" y="24" width="315" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.089968950320512817" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="EST-ZO-Rt3" firstAttribute="centerX" secondItem="U30-jE-WnD" secondAttribute="centerX" id="8Tz-uO-B16"/>
+                                    <constraint firstItem="gZo-TL-zVQ" firstAttribute="centerX" secondItem="U30-jE-WnD" secondAttribute="centerX" id="NyT-0K-4l5"/>
+                                    <constraint firstItem="Vwf-E0-z0L" firstAttribute="centerX" secondItem="U30-jE-WnD" secondAttribute="centerX" id="mfW-oA-b7Y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1019607843" green="0.2156862745" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6v8-V9-6c3" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="nn0-LN-FgK"/>
+                            <constraint firstItem="U30-jE-WnD" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="wxC-uQ-Bia"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="user" selectedImage="user" id="dcI-Cc-GhN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbN-7a-rhW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="1788"/>
+            <point key="canvasLocation" x="601" y="1825"/>
         </scene>
         <!--Browse-->
         <scene sceneID="t9o-fq-GBd">
