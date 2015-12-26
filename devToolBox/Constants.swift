@@ -18,7 +18,7 @@ extension Client {
     
     struct Methods {
         static var login: String = "auth/local"
-        static var recentItems: String = "items"
+        static var recentItems: String = "api/items"
     }
     
     

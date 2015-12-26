@@ -19,9 +19,9 @@ struct Item {
     var accessType: String?
     var itemType: String?
     var mobileApps: [String]?
-    var plans: [AnyObject]?
+//    var plans: [AnyObject]?
     var screenshots: [String]?
-    var social: [String]?
+//    var social: [String]?
     var tags: [String]?
     var createdAt: NSDate?
     var updatedAt: NSDate?
@@ -65,17 +65,17 @@ struct Item {
             self.mobileApps = mobileApps
         }
         
-        if let plans = item["plans"] as? [AnyObject] {
-            self.plans = plans
-        }
+//        if let plans = item["plans"] as? [AnyObject] {
+//            self.plans = plans
+//        }
         
         if let screenshots = item["screenshots"] as? [String] {
             self.screenshots = screenshots
         }
         
-        if let social = item["social"] as? [String] {
-            self.social = social
-        }
+//        if let social = item["social"] as? [String] {
+//            self.social = social
+//        }
         
         if let tags = item["tags"] as? [String] {
             self.tags = tags

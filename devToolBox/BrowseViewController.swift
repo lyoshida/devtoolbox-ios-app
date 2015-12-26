@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BrowseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class BrowseViewController: UITableViewController {
     
     @IBOutlet var itemsTable: UITableView!
     
@@ -22,20 +22,25 @@ class BrowseViewController: UIViewController, UITableViewDataSource, UITableView
         
         itemsTable.dataSource = self
         itemsTable.delegate = self
+        
+        self.loadItems()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.items.count
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items.count
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        <#code#>
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! ItemTableViewCell
+        
+        let item = self.items[indexPath.row]
+        
+        cell.nameLabel.text = item.name!
+        cell.shortDescriptionLabel.text = item.shortDescription!
+        
+        return cell
     }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
     
     func loadItems() {
         
@@ -46,11 +51,23 @@ class BrowseViewController: UIViewController, UITableViewDataSource, UITableView
         
         Client.sharedInstance.taskForGETMethod(Client.Constants.baseUrl + Client.Methods.recentItems, parameters: params) { result, error in
             
-            if let result = result as? [Item] {
-                self.items = result
+            if error != nil {
+                print(error)
             } else {
-                print("Error parsing results.")
+                if let results = result as? [[String: AnyObject]] {
+                    for result in results {
+                        self.items.append(Item(item: result))
+                    }
+                    self.page += 1
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.itemsTable.reloadData()
+                    })
+                } else {
+                    print("Error parsing results.")
+                }
             }
+            
         }
     }
     
