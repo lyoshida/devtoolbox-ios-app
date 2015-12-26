@@ -29,6 +29,8 @@ class LoginViewController: UIViewController {
             
             disableControls()
             
+            // TODO: check internet connection
+            
             Client.sharedInstance.login(username, password: password, completionHandler: { result, error in
                 dispatch_async(dispatch_get_main_queue()) {
                     

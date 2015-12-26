@@ -27,7 +27,7 @@
         <!--Root View Controller-->
         <scene sceneID="DoM-Ni-3k2">
             <objects>
-                <tableViewController id="ddc-97-S0i" sceneMemberID="viewController">
+                <tableViewController id="ddc-97-S0i" customClass="BrowseViewController" customModule="devToolBox" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3PO-3c-8mm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nAt-uW-Nkp" id="6RR-BU-phb">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -48,6 +48,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="7FU-9w-l3K" userLabel="Categories"/>
+                    <connections>
+                        <outlet property="itemsTable" destination="3PO-3c-8mm" id="jpI-yq-rcg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUX-1n-FUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

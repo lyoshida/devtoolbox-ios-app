@@ -20,6 +20,8 @@
 		E9CED9811C26FDE7004A9B0C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9801C26FDE7004A9B0C /* Constants.swift */; };
 		E9CED9831C271BD8004A9B0C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9821C271BD8004A9B0C /* LoginViewController.swift */; };
 		E9CED9851C271C76004A9B0C /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CED9841C271C76004A9B0C /* Convenience.swift */; };
+		E9EBFFC51C2AF767007FCB65 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EBFFC41C2AF767007FCB65 /* BrowseViewController.swift */; };
+		E9EBFFC71C2B40CB007FCB65 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EBFFC61C2B40CB007FCB65 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		E9CED9801C26FDE7004A9B0C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E9CED9821C271BD8004A9B0C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E9CED9841C271C76004A9B0C /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
+		E9EBFFC41C2AF767007FCB65 /* BrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
+		E9EBFFC61C2B40CB007FCB65 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,12 +117,14 @@
 				E989E5A31C21969100CA4C45 /* AppDelegate.swift */,
 				E989E5A51C21969100CA4C45 /* ViewController.swift */,
 				E9CED9821C271BD8004A9B0C /* LoginViewController.swift */,
+				E9EBFFC41C2AF767007FCB65 /* BrowseViewController.swift */,
+				E9CED97E1C26F8C4004A9B0C /* CoreDataStackManager.swift */,
 				E989E5A71C21969100CA4C45 /* Main.storyboard */,
 				E989E5AD1C21969100CA4C45 /* Assets.xcassets */,
 				E989E5AF1C21969100CA4C45 /* LaunchScreen.storyboard */,
 				E989E5B21C21969100CA4C45 /* Info.plist */,
 				E989E5AA1C21969100CA4C45 /* devToolBox.xcdatamodeld */,
-				E9CED97E1C26F8C4004A9B0C /* CoreDataStackManager.swift */,
+				E9EBFFC61C2B40CB007FCB65 /* Item.swift */,
 			);
 			path = devToolBox;
 			sourceTree = "<group>";
@@ -285,12 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9EBFFC71C2B40CB007FCB65 /* Item.swift in Sources */,
 				E9CED9831C271BD8004A9B0C /* LoginViewController.swift in Sources */,
 				E9CED9851C271C76004A9B0C /* Convenience.swift in Sources */,
 				E989E5AC1C21969100CA4C45 /* devToolBox.xcdatamodeld in Sources */,
 				E989E5A61C21969100CA4C45 /* ViewController.swift in Sources */,
 				E9CED97D1C26F854004A9B0C /* Client.swift in Sources */,
 				E9CED97F1C26F8C4004A9B0C /* CoreDataStackManager.swift in Sources */,
+				E9EBFFC51C2AF767007FCB65 /* BrowseViewController.swift in Sources */,
 				E989E5A41C21969100CA4C45 /* AppDelegate.swift in Sources */,
 				E9CED9811C26FDE7004A9B0C /* Constants.swift in Sources */,
 			);

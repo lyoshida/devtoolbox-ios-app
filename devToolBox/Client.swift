@@ -67,7 +67,6 @@ class Client: NSObject {
         
         let url = NSURL(string: urlString)
         let request = NSMutableURLRequest(URL: url!)
-        var jsonifyError: NSError? = nil
         
         // Request setup
         request.HTTPMethod = "POST"
