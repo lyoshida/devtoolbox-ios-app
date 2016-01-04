@@ -19,9 +19,7 @@ struct Item {
     var accessType: String?
     var itemType: String?
     var mobileApps: [String]?
-//    var plans: [AnyObject]?
     var screenshots: [String]?
-//    var social: [String]?
     var tags: [String]?
     var createdAt: NSDate?
     var updatedAt: NSDate?

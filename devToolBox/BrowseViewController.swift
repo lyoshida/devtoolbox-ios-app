@@ -34,12 +34,52 @@ class BrowseViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! ItemTableViewCell
         
+        cell.imageView!.frame = CGRectMake(0, 0, 100, 100)
+        cell.imageView!.center = CGPoint(x: 0, y: 0)
+        
+        cell.imageView!.frame = (cell.imageView?.bounds)!
+        cell.contentMode = .ScaleAspectFit
+        cell.imageView!.contentMode = .ScaleAspectFit
+        cell.imageView!
+        
         let item = self.items[indexPath.row]
+        
+        if (item.thumbnail != nil) {
+            let url = NSURL(string: item.thumbnail!)
+            getDataFromUrl(url!) { (data, response, error)  in
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    guard let data = data where error == nil else { return }
+                    print(response?.suggestedFilename ?? "")
+                    print("Download Finished")
+                    cell.imageView!.image = UIImage(data: data)
+                }
+            }
+
+        }
+        
         
         cell.nameLabel.text = item.name!
         cell.shortDescriptionLabel.text = item.shortDescription!
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let lastRowIndex = tableView.numberOfRowsInSection(0)
+        if indexPath.row == lastRowIndex - 1 {
+            loadItems()
+        }
+    }
+    
+    func downloadImage(url: NSURL){
+        print("Download Started")
+        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+            }
+    
+    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
     }
     
     func loadItems() {

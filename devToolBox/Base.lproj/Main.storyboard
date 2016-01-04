@@ -34,32 +34,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="107" id="nAt-uW-Nkp" customClass="ItemTableViewCell" customModule="devToolBox">
+                            <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="107" id="nAt-uW-Nkp" customClass="ItemTableViewCell" customModule="devToolBox">
                                 <rect key="frame" x="0.0" y="92" width="600" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nAt-uW-Nkp" id="6RR-BU-phb">
+                                <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="nAt-uW-Nkp" id="6RR-BU-phb">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="106"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-TS-fxu" userLabel="thumbnailView">
-                                            <rect key="frame" x="19" y="3" width="100" height="100"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jng-PU-qMz" userLabel="nameLabel">
-                                            <rect key="frame" x="156" y="8" width="417" height="21"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzp-gu-Swd" userLabel="shortDescriptionLabel">
-                                            <rect key="frame" x="156" y="42" width="436" height="56"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzp-gu-Swd" userLabel="shortDescriptionLabel">
+                                            <rect key="frame" x="116" y="37" width="476" height="56"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jng-PU-qMz" userLabel="nameLabel">
+                                            <rect key="frame" x="116" y="3" width="476" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-TS-fxu" userLabel="thumbnailView">
+                                            <rect key="frame" x="8" y="3" width="100" height="100"/>
+                                            <color key="backgroundColor" red="0.015124227851629257" green="0.98986715078353882" blue="0.015794899314641953" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="1" constant="100" id="Qwa-Ry-o7c"/>
+                                                <constraint firstAttribute="width" constant="100" id="y13-Lk-E6H"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Sgc-TS-fxu" firstAttribute="leading" secondItem="6RR-BU-phb" secondAttribute="leadingMargin" constant="11" id="bgT-PL-5ah"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Jng-PU-qMz" secondAttribute="trailing" id="5Ci-Zo-aSm"/>
+                                        <constraint firstAttribute="topMargin" secondItem="Jng-PU-qMz" secondAttribute="top" id="9VG-YW-poo"/>
+                                        <constraint firstItem="pzp-gu-Swd" firstAttribute="leading" secondItem="Sgc-TS-fxu" secondAttribute="trailing" constant="8" id="MKs-uz-D7k"/>
+                                        <constraint firstItem="Sgc-TS-fxu" firstAttribute="leading" secondItem="6RR-BU-phb" secondAttribute="leadingMargin" id="bgT-PL-5ah"/>
+                                        <constraint firstItem="pzp-gu-Swd" firstAttribute="top" secondItem="Jng-PU-qMz" secondAttribute="bottom" constant="13" id="gWU-cg-Kqa"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pzp-gu-Swd" secondAttribute="trailing" id="jYL-p4-lAn"/>
                                         <constraint firstItem="Sgc-TS-fxu" firstAttribute="centerY" secondItem="6RR-BU-phb" secondAttribute="centerY" id="m08-im-fyE"/>
+                                        <constraint firstItem="Jng-PU-qMz" firstAttribute="leading" secondItem="Sgc-TS-fxu" secondAttribute="trailing" constant="8" id="uWa-ty-Ovo"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
