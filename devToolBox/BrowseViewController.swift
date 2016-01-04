@@ -34,13 +34,7 @@ class BrowseViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! ItemTableViewCell
         
-        cell.imageView!.frame = CGRectMake(0, 0, 100, 100)
-        cell.imageView!.center = CGPoint(x: 0, y: 0)
-        
-        cell.imageView!.frame = (cell.imageView?.bounds)!
-        cell.contentMode = .ScaleAspectFit
-        cell.imageView!.contentMode = .ScaleAspectFit
-        cell.imageView!
+
         
         let item = self.items[indexPath.row]
         
@@ -52,6 +46,13 @@ class BrowseViewController: UITableViewController {
                     print(response?.suggestedFilename ?? "")
                     print("Download Finished")
                     cell.imageView!.image = UIImage(data: data)
+                    
+                    cell.imageView!.frame = CGRectMake(50, 50, 100, 100)
+                    cell.imageView!.center = CGPoint(x: 50, y: 50)
+                    
+                    cell.imageView!.frame = (cell.imageView?.bounds)!
+                    cell.contentMode = .ScaleAspectFit
+                    cell.imageView!.contentMode = .ScaleAspectFit
                 }
             }
 
