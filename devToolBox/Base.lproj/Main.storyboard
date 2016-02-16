@@ -55,7 +55,6 @@
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-TS-fxu" userLabel="thumbnailView">
                                             <rect key="frame" x="8" y="3" width="100" height="100"/>
-                                            <color key="backgroundColor" red="0.015124227851629257" green="0.98986715078353882" blue="0.015794899314641953" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" priority="1" constant="100" id="Qwa-Ry-o7c"/>
                                                 <constraint firstAttribute="width" constant="100" id="y13-Lk-E6H"/>
