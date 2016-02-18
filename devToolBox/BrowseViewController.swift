@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class BrowseViewController: UITableViewController {
     
     @IBOutlet var itemsTable: UITableView!
+    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
     
     // The current page
     var page: Int = 1
@@ -59,7 +64,7 @@ class BrowseViewController: UITableViewController {
         
         
         cell.nameLabel.text = item.name!
-        cell.shortDescriptionLabel.text = item.shortDescription!
+        cell.shortDescriptionLabel.text = item.short_description!
         
         return cell
     }
@@ -96,7 +101,7 @@ class BrowseViewController: UITableViewController {
             } else {
                 if let results = result as? [[String: AnyObject]] {
                     for result in results {
-                        self.items.append(Item(item: result))
+                        self.items.append(Item(item: result, context: self.sharedContext))
                     }
                     self.page += 1
                     

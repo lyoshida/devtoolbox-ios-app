@@ -7,25 +7,35 @@
 //
 
 import Foundation
+import CoreData
 
-struct Item {
+@objc(Item)
+
+class Item: NSManagedObject {
     
-    var name: String?
-    var name_slug: String?
-    var shortDescription: String?
-    var longDescription: String?
-    var url: String?
-    var thumbnail: String?
-    var accessType: String?
-    var itemType: String?
-    var mobileApps: [String]?
-    var screenshots: [String]?
-    var tags: [String]?
-    var createdAt: NSDate?
-    var updatedAt: NSDate?
-    var viewsCount: Int?
+    @NSManaged var name: String?
+    @NSManaged var name_slug: String?
+    @NSManaged var short_description: String?
+    @NSManaged var long_description: String?
+    @NSManaged var url: String?
+    @NSManaged var thumbnail: String?
+    @NSManaged var accessType: String?
+    @NSManaged var itemType: String?
+    @NSManaged var mobileApps: [String]?
+    @NSManaged var screenshots: [String]?
+    @NSManaged var tags: [String]?
+    @NSManaged var createdAt: NSDate?
+    @NSManaged var updatedAt: NSDate?
+    @NSManaged var viewsCount: NSNumber
     
-    init(item: [String: AnyObject]) {
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
+    
+    init(item: [String: AnyObject], context: NSManagedObjectContext) {
+        
+        let entity = NSEntityDescription.entityForName("Item", inManagedObjectContext: context)!
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
         
         if let name = item["name"] as? String {
             self.name = name
@@ -35,12 +45,12 @@ struct Item {
             self.name_slug = name_slug
         }
         
-        if let shortDescription = item["shortDescription"] as? String {
-            self.shortDescription = shortDescription
+        if let short_description = item["shortDescription"] as? String {
+            self.short_description = short_description
         }
         
-        if let longDescription = item["longDescription"] as? String {
-            self.longDescription = longDescription
+        if let long_description = item["longDescription"] as? String {
+            self.long_description = long_description
         }
         
         if let url = item["url"] as? String {
@@ -63,17 +73,9 @@ struct Item {
             self.mobileApps = mobileApps
         }
         
-//        if let plans = item["plans"] as? [AnyObject] {
-//            self.plans = plans
-//        }
-        
         if let screenshots = item["screenshots"] as? [String] {
             self.screenshots = screenshots
         }
-        
-//        if let social = item["social"] as? [String] {
-//            self.social = social
-//        }
         
         if let tags = item["tags"] as? [String] {
             self.tags = tags
