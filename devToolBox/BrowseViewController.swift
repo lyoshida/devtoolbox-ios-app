@@ -76,6 +76,12 @@ class BrowseViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // TODO: Implement item selection
+        
+    }
+    
     func downloadImage(url: NSURL){
         print("Download Started")
         print("lastPathComponent: " + (url.lastPathComponent ?? ""))
