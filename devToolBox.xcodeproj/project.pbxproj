@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E91B43FF1C2EDE4600A52A42 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B43FE1C2EDE4600A52A42 /* ItemTableViewCell.swift */; };
+		E95EA7351C7B2C1A007FD60A /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95EA7341C7B2C1A007FD60A /* ItemDetailViewController.swift */; };
 		E989E5A41C21969100CA4C45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E989E5A31C21969100CA4C45 /* AppDelegate.swift */; };
 		E989E5A61C21969100CA4C45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E989E5A51C21969100CA4C45 /* ViewController.swift */; };
 		E989E5A91C21969100CA4C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E989E5A71C21969100CA4C45 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		E91B43FE1C2EDE4600A52A42 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		E95EA7341C7B2C1A007FD60A /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		E989E5A01C21969100CA4C45 /* devToolBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devToolBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E989E5A31C21969100CA4C45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E989E5A51C21969100CA4C45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				E989E5A51C21969100CA4C45 /* ViewController.swift */,
 				E9CED9821C271BD8004A9B0C /* LoginViewController.swift */,
 				E9EBFFC41C2AF767007FCB65 /* BrowseViewController.swift */,
+				E95EA7341C7B2C1A007FD60A /* ItemDetailViewController.swift */,
 				E9CED97E1C26F8C4004A9B0C /* CoreDataStackManager.swift */,
 				E9EBFFC61C2B40CB007FCB65 /* Item.swift */,
 				E989E5A71C21969100CA4C45 /* Main.storyboard */,
@@ -296,6 +299,7 @@
 			files = (
 				E9EBFFC71C2B40CB007FCB65 /* Item.swift in Sources */,
 				E9CED9831C271BD8004A9B0C /* LoginViewController.swift in Sources */,
+				E95EA7351C7B2C1A007FD60A /* ItemDetailViewController.swift in Sources */,
 				E9CED9851C271C76004A9B0C /* Convenience.swift in Sources */,
 				E989E5AC1C21969100CA4C45 /* devToolBox.xcdatamodeld in Sources */,
 				E989E5A61C21969100CA4C45 /* ViewController.swift in Sources */,

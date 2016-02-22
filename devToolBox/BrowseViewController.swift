@@ -21,6 +21,7 @@ class BrowseViewController: UITableViewController {
     var page: Int = 1
     
     var items: [Item] = []
+    var selectedItem: Item? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +79,18 @@ class BrowseViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        // TODO: Implement item selection
+        self.selectedItem = items[indexPath.row]
         
+        performSegueWithIdentifier("showItem", sender: self)
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showItem") {
+            let itemDetailView = segue.destinationViewController as! ItemDetailViewController
+            itemDetailView.item = self.selectedItem
+        }
     }
     
     func downloadImage(url: NSURL){
