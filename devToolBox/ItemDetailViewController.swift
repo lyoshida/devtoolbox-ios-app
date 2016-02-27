@@ -15,6 +15,8 @@ class ItemDetailViewController: UIViewController {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var shortDescriptionTextView: UITextView!
     @IBOutlet weak var longDescriptionTextView: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var stackView: UIStackView!
     
     var item: Item? = nil
     
@@ -34,6 +36,15 @@ class ItemDetailViewController: UIViewController {
             longDescriptionTextView.attributedText = theAttributedString
         }
         
+        longDescriptionTextView.scrollRangeToVisible(NSMakeRange(-1, 0))
+        
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
+        
+    }
+    
 }
