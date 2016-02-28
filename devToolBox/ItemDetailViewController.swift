@@ -29,11 +29,15 @@ class ItemDetailViewController: UIViewController {
 
             
             // source: http://stackoverflow.com/questions/2454067/display-html-text-in-uitextview
-            let theAttributedString = try! NSAttributedString(data: item.long_description!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!,
-                options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
-                documentAttributes: nil)
             
-            longDescriptionTextView.attributedText = theAttributedString
+            if let longDescription = item.long_description {
+            
+                let theAttributedString = try! NSAttributedString(data: longDescription.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!,
+                    options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                    documentAttributes: nil)
+            
+                longDescriptionTextView.attributedText = theAttributedString
+            }
         }
         
         longDescriptionTextView.scrollRangeToVisible(NSMakeRange(-1, 0))
