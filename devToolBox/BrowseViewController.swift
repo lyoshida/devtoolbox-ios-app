@@ -50,8 +50,6 @@ class BrowseViewController: UITableViewController {
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
                     
                     guard let data = data where error == nil else { return }
-                    print(response?.suggestedFilename ?? "")
-                    print("Download Finished")
                     dispatch_async(dispatch_get_main_queue()) {
                         cell.thumbnailView!.image = UIImage(data: data)
                         cell.thumbnailView!.contentMode = .ScaleAspectFit

@@ -24,6 +24,26 @@ class ItemDetailViewController: UIViewController {
         
         
         if let item = self.item {
+            
+            
+            if (item.thumbnail != nil) {
+                let url = NSURL(string: item.thumbnail!)
+                getDataFromUrl(url!) { (data, response, error)  in
+                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                        
+                        guard let data = data where error == nil else { return }
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.thumbnailImageView.image = UIImage(data: data)
+                            self.thumbnailImageView.contentMode = .ScaleAspectFit
+                            self.thumbnailImageView.clipsToBounds = true
+                        }
+                        
+                    }
+                }
+                
+            }
+
+            
             self.title = item.name
             shortDescriptionTextView.text = item.short_description
 
@@ -49,6 +69,12 @@ class ItemDetailViewController: UIViewController {
         
         scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
         
+    }
+    
+    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
     }
     
 }

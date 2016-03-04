@@ -106,13 +106,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EU4-au-0EY">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EU4-au-0EY">
+                                <rect key="frame" x="0.0" y="72" width="600" height="479"/>
                                 <subviews>
                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gRN-Ld-dr7">
-                                        <rect key="frame" x="16" y="8" width="568" height="168"/>
+                                        <rect key="frame" x="16" y="8" width="568" height="174"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nN2-0D-mW1">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nN2-0D-mW1">
                                                 <rect key="frame" x="0.0" y="0.0" width="568" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="Mil-09-ckL"/>
@@ -125,12 +125,12 @@
                                                 </variation>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78f-Nc-uJg">
-                                                <rect key="frame" x="0.0" y="100" width="568" height="33"/>
+                                                <rect key="frame" x="0.0" y="100" width="568" height="37"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="w7Y-Mw-H0Z"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -139,12 +139,12 @@
                                                 </variation>
                                             </textView>
                                             <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JU-7B-Wwn">
-                                                <rect key="frame" x="0.0" y="133" width="568" height="35"/>
+                                                <rect key="frame" x="0.0" y="137" width="568" height="37"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="160" id="O2X-Rt-kSK"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -215,7 +215,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EU4-au-0EY" firstAttribute="top" secondItem="DLy-Ea-xKW" secondAttribute="bottom" id="JZb-bD-c4w"/>
+                            <constraint firstItem="EU4-au-0EY" firstAttribute="top" secondItem="DLy-Ea-xKW" secondAttribute="bottom" constant="5" id="JZb-bD-c4w"/>
                             <constraint firstItem="EU4-au-0EY" firstAttribute="top" secondItem="DLy-Ea-xKW" secondAttribute="bottom" id="KXL-yU-ERf"/>
                             <constraint firstItem="EU4-au-0EY" firstAttribute="leading" secondItem="zfT-2L-Y11" secondAttribute="leadingMargin" constant="-20" id="OdR-fk-hMg"/>
                             <constraint firstAttribute="trailing" secondItem="EU4-au-0EY" secondAttribute="trailing" id="On1-8S-OK1"/>
