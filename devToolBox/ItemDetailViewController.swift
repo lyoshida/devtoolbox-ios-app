@@ -8,9 +8,9 @@
 
 import Foundation
 import UIKit
+import SafariServices
 
-
-class ItemDetailViewController: UIViewController {
+class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var shortDescriptionTextView: UITextView!
@@ -24,7 +24,6 @@ class ItemDetailViewController: UIViewController {
         
         
         if let item = self.item {
-            
             
             if (item.thumbnail != nil) {
                 let url = NSURL(string: item.thumbnail!)
@@ -62,6 +61,12 @@ class ItemDetailViewController: UIViewController {
         
         longDescriptionTextView.scrollRangeToVisible(NSMakeRange(-1, 0))
         
+        
+        // Adds a right bar button on the ItemDetailView
+        if let _ = self.item!.url {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View website", style: .Plain, target: self, action: "viewWebSite")
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -75,6 +80,21 @@ class ItemDetailViewController: UIViewController {
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
             completion(data: data, response: response, error: error)
             }.resume()
+    }
+    
+    
+    // Opens a Safari View
+    func viewWebSite() {
+        
+        let safariViewController = SFSafariViewController(URL: NSURL(string: self.item!.url!)!)
+        presentViewController(safariViewController, animated: true, completion: nil)
+        
+    }
+    
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
 }
