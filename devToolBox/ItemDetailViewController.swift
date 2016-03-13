@@ -17,6 +17,7 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
     @IBOutlet weak var longDescriptionTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var openWebSiteButton: UIButton!
     
     var item: Item? = nil
     
@@ -62,11 +63,14 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
         longDescriptionTextView.scrollRangeToVisible(NSMakeRange(-1, 0))
         
         
-        // Adds a right bar button on the ItemDetailView
         if let _ = self.item!.url {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View website", style: .Plain, target: self, action: "viewWebSite")
+            self.openWebSiteButton.hidden = false
         }
         
+        
+        // Adds a right bar button on the ItemDetailView
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View website", style: .Plain, target: self, action: "viewWebSite")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save , target: self, action: "")
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,6 +78,10 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
         
         scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
         
+    }
+    
+    @IBAction func openWebsite(sender: UIButton) {
+        viewWebSite()
     }
     
     func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
