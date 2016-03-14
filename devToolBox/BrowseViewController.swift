@@ -32,6 +32,12 @@ class BrowseViewController: UITableViewController {
         self.loadItems()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        
+        
+        print(self.navigationController?.restorationIdentifier)
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
