@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 import UIKit
 import SafariServices
 
@@ -18,6 +19,8 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var openWebSiteButton: UIButton!
+    
+    var sharedContext: NSManagedObjectContext = CoreDataStackManager.sharedInstance().managedObjectContext
     
     var item: Item? = nil
     
@@ -70,7 +73,7 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
         
         // Adds a right bar button on the ItemDetailView
 //        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View website", style: .Plain, target: self, action: "viewWebSite")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save , target: self, action: "")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save , target: self, action: "saveFavorite")
     }
     
     override func viewDidLayoutSubviews() {
@@ -82,6 +85,13 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
     
     @IBAction func openWebsite(sender: UIButton) {
         viewWebSite()
+    }
+    
+    func saveFavorite() {
+        
+        self.saveSharedContext()
+        showAlertView()
+        
     }
     
     func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
@@ -103,6 +113,23 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
         
         controller.dismissViewControllerAnimated(true, completion: nil)
         
+    }
+    
+    func saveSharedContext() {
+        dispatch_async(dispatch_get_main_queue(), {
+            do {
+                try self.sharedContext.save()
+            } catch let error as NSError {
+                print("Error saving photo.")
+                print(error)
+            }
+        })
+    }
+    
+    func showAlertView() {
+        let alertController = UIAlertController(title: "Favorite", message: "This item was saved in your favorite list", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
 }

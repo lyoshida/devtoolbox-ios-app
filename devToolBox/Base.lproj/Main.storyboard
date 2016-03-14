@@ -152,7 +152,7 @@
                                                     </mask>
                                                 </variation>
                                             </textView>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hU3-Rw-shs">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hU3-Rw-shs">
                                                 <rect key="frame" x="0.0" y="174" width="568" height="0.0"/>
                                                 <state key="normal" title="Open Website"/>
                                                 <connections>
