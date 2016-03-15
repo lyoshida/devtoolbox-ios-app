@@ -9,12 +9,24 @@
 import UIKit
 import CoreData
 
+enum Tab {
+    case BrowseNavigationController, FavoritesNavigationController
+}
+
 class BrowseViewController: UITableViewController {
     
     @IBOutlet var itemsTable: UITableView!
     
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+    
+    var selectedTab: Tab? {
+        if self.navigationController?.restorationIdentifier == "BrowseNavigationController" {
+            return Tab.BrowseNavigationController
+        }
+        
+        return Tab.FavoritesNavigationController
     }
     
     // The current page
@@ -29,14 +41,14 @@ class BrowseViewController: UITableViewController {
         itemsTable.dataSource = self
         itemsTable.delegate = self
         
-        self.loadItems()
+        if selectedTab == Tab.BrowseNavigationController {
+            self.loadItems()
+        } else if selectedTab == Tab.FavoritesNavigationController {
+            self.items = loadFavorites()
+        }
+        
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
-        
-        print(self.navigationController?.restorationIdentifier)
-    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
@@ -45,8 +57,10 @@ class BrowseViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("itemCell", forIndexPath: indexPath) as! ItemTableViewCell
-        
-
+    
+        if self.items.count == 0 {
+            return cell
+        }
         
         let item = self.items[indexPath.row]
         
@@ -97,17 +111,7 @@ class BrowseViewController: UITableViewController {
         }
     }
     
-    func downloadImage(url: NSURL){
-        print("Download Started")
-        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
-            }
-    
-    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
-            completion(data: data, response: response, error: error)
-            }.resume()
-    }
-    
+    // Load items from API
     func loadItems() {
         
         let params = [
@@ -135,6 +139,43 @@ class BrowseViewController: UITableViewController {
             }
             
         }
+        
+    }
+    
+    // Load favorites from Core Data
+    func loadFavorites() -> [Item] {
+        
+        var results = [Item]()
+        
+        let fetchRequest = NSFetchRequest(entityName: "Item")
+        
+        do {
+            results = try sharedContext.executeFetchRequest(fetchRequest) as! [Item]
+            print(results)
+        } catch let error as NSError {
+            print("Error fetching core data items")
+            print(error)
+        }
+        
+        return results
+        
+    }
+    
+    // Helper methods
+    
+    func downloadImage(url: NSURL) {
+        
+        print("Download Started")
+        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+        
+    }
+    
+    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
+        
     }
     
 }
