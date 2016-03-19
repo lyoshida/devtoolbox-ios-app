@@ -26,9 +26,11 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
     
     override func viewDidLoad() {
         
-        
         if let item = self.item {
             
+            self.item = convertItemToSharedContext(item)
+            
+            print(self.item?.managedObjectContext)
             if (item.thumbnail != nil) {
                 let url = NSURL(string: item.thumbnail!)
                 getDataFromUrl(url!) { (data, response, error)  in
@@ -45,7 +47,6 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
                 }
                 
             }
-
             
             self.title = item.name
             shortDescriptionTextView.text = item.short_description
@@ -120,10 +121,33 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
             do {
                 try self.sharedContext.save()
             } catch let error as NSError {
-                print("Error saving photo.")
+                print("Error saving item.")
                 print(error)
             }
         })
+    }
+    
+    func convertItemToSharedContext(item: Item) -> Item {
+        
+        var dictionary = [String:AnyObject]()
+        
+        dictionary["name"] = item.name
+        dictionary["name_slug"] = item.name_slug
+        dictionary["shortDescription"] = item.short_description
+        dictionary["longDescription"] = item.long_description
+        dictionary["url"] = item.url
+        dictionary["thumbnail"] = item.thumbnail
+        dictionary["accessType"] = item.accessType
+        dictionary["itemType"] = item.itemType
+        dictionary["mobileApps"] = item.mobileApps
+        dictionary["screenshots"] = item.screenshots
+        dictionary["tags"] = item.tags
+        dictionary["createdAt"] = item.createdAt
+        dictionary["updatedAt"] = item.updatedAt
+        dictionary["viewsCount"] = item.viewsCount
+        
+        return Item(item: dictionary, context: self.sharedContext)
+
     }
     
     func showAlertView() {

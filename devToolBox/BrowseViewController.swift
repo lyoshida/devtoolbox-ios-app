@@ -21,6 +21,12 @@ class BrowseViewController: UITableViewController {
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }
     
+    lazy var scratchContext: NSManagedObjectContext = {
+        var context = NSManagedObjectContext()
+        context.persistentStoreCoordinator =  CoreDataStackManager.sharedInstance().persistentStoreCoordinator
+        return context
+    }()
+    
     var selectedTab: Tab? {
         if self.navigationController?.restorationIdentifier == "BrowseNavigationController" {
             return Tab.BrowseNavigationController
@@ -91,7 +97,12 @@ class BrowseViewController: UITableViewController {
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let lastRowIndex = tableView.numberOfRowsInSection(0)
         if indexPath.row == lastRowIndex - 1 {
-            loadItems()
+            
+            if selectedTab == Tab.BrowseNavigationController {
+                self.loadItems()
+            } else if selectedTab == Tab.FavoritesNavigationController {
+                loadFavorites()
+            }
         }
     }
     
@@ -101,6 +112,20 @@ class BrowseViewController: UITableViewController {
         
         performSegueWithIdentifier("showItem", sender: self)
         
+        
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if selectedTab == Tab.FavoritesNavigationController {
+            if (editingStyle == UITableViewCellEditingStyle.Delete) {
+                print("delete")
+            }
+        }
         
     }
     
@@ -126,7 +151,7 @@ class BrowseViewController: UITableViewController {
             } else {
                 if let results = result as? [[String: AnyObject]] {
                     for result in results {
-                        self.items.append(Item(item: result, context: self.sharedContext))
+                        self.items.append(Item(item: result, context: self.scratchContext))
                     }
                     self.page += 1
                     
