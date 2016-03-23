@@ -80,6 +80,8 @@ class BrowseViewController: UITableViewController {
                         cell.thumbnailView!.image = UIImage(data: data)
                         cell.thumbnailView!.contentMode = .ScaleAspectFit
                         cell.thumbnailView!.clipsToBounds = true
+                        
+                        cell.activityIndicator.stopAnimating()
                     }
                     
                 }

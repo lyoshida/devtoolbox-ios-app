@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oxk-ng-ISH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oxk-ng-ISH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -58,19 +58,33 @@
                                                 <constraint firstAttribute="width" constant="100" id="y13-Lk-E6H"/>
                                             </constraints>
                                         </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="EkO-QU-7hs">
+                                            <rect key="frame" x="48" y="43" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="Jng-PU-qMz" secondAttribute="trailing" id="5Ci-Zo-aSm"/>
                                         <constraint firstAttribute="topMargin" secondItem="Jng-PU-qMz" secondAttribute="top" id="9VG-YW-poo"/>
+                                        <constraint firstItem="EkO-QU-7hs" firstAttribute="centerY" secondItem="Sgc-TS-fxu" secondAttribute="centerY" id="E9U-bC-zik"/>
                                         <constraint firstItem="pzp-gu-Swd" firstAttribute="leading" secondItem="Sgc-TS-fxu" secondAttribute="trailing" constant="8" id="MKs-uz-D7k"/>
+                                        <constraint firstItem="EkO-QU-7hs" firstAttribute="centerX" secondItem="Sgc-TS-fxu" secondAttribute="centerX" id="RSt-XQ-GSM"/>
                                         <constraint firstItem="Sgc-TS-fxu" firstAttribute="leading" secondItem="6RR-BU-phb" secondAttribute="leadingMargin" id="bgT-PL-5ah"/>
+                                        <constraint firstItem="EkO-QU-7hs" firstAttribute="centerY" secondItem="6RR-BU-phb" secondAttribute="centerY" id="cpx-4Q-yHB"/>
                                         <constraint firstItem="pzp-gu-Swd" firstAttribute="top" secondItem="Jng-PU-qMz" secondAttribute="bottom" constant="13" id="gWU-cg-Kqa"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pzp-gu-Swd" secondAttribute="trailing" id="jYL-p4-lAn"/>
                                         <constraint firstItem="Sgc-TS-fxu" firstAttribute="centerY" secondItem="6RR-BU-phb" secondAttribute="centerY" id="m08-im-fyE"/>
                                         <constraint firstItem="Jng-PU-qMz" firstAttribute="leading" secondItem="Sgc-TS-fxu" secondAttribute="trailing" constant="8" id="uWa-ty-Ovo"/>
+                                        <constraint firstItem="EkO-QU-7hs" firstAttribute="centerX" secondItem="6RR-BU-phb" secondAttribute="centerX" id="zao-FD-tt1"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="cpx-4Q-yHB"/>
+                                            <exclude reference="zao-FD-tt1"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="EkO-QU-7hs" id="TBU-ua-fhg"/>
                                     <outlet property="nameLabel" destination="Jng-PU-qMz" id="6to-7y-Qrz"/>
                                     <outlet property="shortDescriptionLabel" destination="pzp-gu-Swd" id="Rl0-VQ-K4N"/>
                                     <outlet property="thumbnailView" destination="Sgc-TS-fxu" id="YDh-CJ-thH"/>
