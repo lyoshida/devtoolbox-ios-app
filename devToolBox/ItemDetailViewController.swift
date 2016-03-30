@@ -28,9 +28,6 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
         
         if let item = self.item {
             
-            self.item = convertItemToSharedContext(item)
-            
-            print(self.item?.managedObjectContext)
             if (item.thumbnail != nil) {
                 let url = NSURL(string: item.thumbnail!)
                 getDataFromUrl(url!) { (data, response, error)  in
@@ -73,8 +70,13 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
         
         
         // Adds a right bar button on the ItemDetailView
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View website", style: .Plain, target: self, action: "viewWebSite")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save , target: self, action: "saveFavorite")
+        let itemManager = ItemManager()
+        itemManager.getFavoriteItems()
+        if itemManager.isFavoriteItem(self.item!.name_slug!) {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Trash , target: self, action: "removeFavorite")
+        } else {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save , target: self, action: "saveFavorite")
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -90,9 +92,14 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
     
     func saveFavorite() {
         
+        self.item = convertItemToSharedContext(self.item!)
         self.saveSharedContext()
         showAlertView()
         
+    }
+    
+    func removeFavorite() {
+        // TODO: implement
     }
     
     func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {

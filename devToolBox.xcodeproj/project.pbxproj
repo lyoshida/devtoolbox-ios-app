@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E91B43FF1C2EDE4600A52A42 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91B43FE1C2EDE4600A52A42 /* ItemTableViewCell.swift */; };
+		E92538A61CAC485E0093F7FE /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92538A51CAC485E0093F7FE /* ItemManager.swift */; };
 		E95EA7351C7B2C1A007FD60A /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95EA7341C7B2C1A007FD60A /* ItemDetailViewController.swift */; };
 		E970FE421C9724EA00165FBA /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970FE411C9724EA00165FBA /* FavoritesViewController.swift */; };
 		E989E5A41C21969100CA4C45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E989E5A31C21969100CA4C45 /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		E91B43FE1C2EDE4600A52A42 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		E92538A51CAC485E0093F7FE /* ItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
 		E95EA7341C7B2C1A007FD60A /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		E970FE411C9724EA00165FBA /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		E989E5A01C21969100CA4C45 /* devToolBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devToolBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 		E989E5A21C21969100CA4C45 /* devToolBox */ = {
 			isa = PBXGroup;
 			children = (
+				E92538A51CAC485E0093F7FE /* ItemManager.swift */,
 				E9CED97B1C26F838004A9B0C /* Model */,
 				E91B43FE1C2EDE4600A52A42 /* ItemTableViewCell.swift */,
 				E989E5A31C21969100CA4C45 /* AppDelegate.swift */,
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E970FE421C9724EA00165FBA /* FavoritesViewController.swift in Sources */,
+				E92538A61CAC485E0093F7FE /* ItemManager.swift in Sources */,
 				E9EBFFC71C2B40CB007FCB65 /* Item.swift in Sources */,
 				E9CED9831C271BD8004A9B0C /* LoginViewController.swift in Sources */,
 				E95EA7351C7B2C1A007FD60A /* ItemDetailViewController.swift in Sources */,

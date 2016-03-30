@@ -35,6 +35,8 @@ class BrowseViewController: UITableViewController {
         return Tab.FavoritesNavigationController
     }
     
+    let itemManager = ItemManager()
+    
     // The current page
     var page: Int = 1
     
@@ -47,12 +49,23 @@ class BrowseViewController: UITableViewController {
         itemsTable.dataSource = self
         itemsTable.delegate = self
         
+//        if selectedTab == Tab.BrowseNavigationController {
+//            self.loadItems()
+//        } else if selectedTab == Tab.FavoritesNavigationController {
+//            self.items = itemManager.getFavoriteItems()
+//        }
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        self.items = []
         if selectedTab == Tab.BrowseNavigationController {
             self.loadItems()
         } else if selectedTab == Tab.FavoritesNavigationController {
-            self.items = loadFavorites()
+            self.items = itemManager.getFavoriteItems()
+            self.itemsTable.reloadData()
         }
-        
     }
     
     
@@ -103,7 +116,7 @@ class BrowseViewController: UITableViewController {
             if selectedTab == Tab.BrowseNavigationController {
                 self.loadItems()
             } else if selectedTab == Tab.FavoritesNavigationController {
-                loadFavorites()
+                self.items = itemManager.getFavoriteItems()
             }
         }
     }
@@ -169,24 +182,6 @@ class BrowseViewController: UITableViewController {
         
     }
     
-    // Load favorites from Core Data
-    func loadFavorites() -> [Item] {
-        
-        var results = [Item]()
-        
-        let fetchRequest = NSFetchRequest(entityName: "Item")
-        
-        do {
-            results = try sharedContext.executeFetchRequest(fetchRequest) as! [Item]
-            print(results)
-        } catch let error as NSError {
-            print("Error fetching core data items")
-            print(error)
-        }
-        
-        return results
-        
-    }
     
     // Helper methods
     
