@@ -49,19 +49,16 @@ class BrowseViewController: UITableViewController {
         itemsTable.dataSource = self
         itemsTable.delegate = self
         
-//        if selectedTab == Tab.BrowseNavigationController {
-//            self.loadItems()
-//        } else if selectedTab == Tab.FavoritesNavigationController {
-//            self.items = itemManager.getFavoriteItems()
-//        }
+        if selectedTab == Tab.BrowseNavigationController {
+            self.loadItems()
+        }
         
     }
     
     override func viewWillAppear(animated: Bool) {
         
-        self.items = []
         if selectedTab == Tab.BrowseNavigationController {
-            self.loadItems()
+            
         } else if selectedTab == Tab.FavoritesNavigationController {
             self.items = itemManager.getFavoriteItems()
             self.itemsTable.reloadData()
@@ -131,16 +128,25 @@ class BrowseViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        
+        if selectedTab == Tab.BrowseNavigationController {
+            return false
+        } else {
+            return true
+        }
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if selectedTab == Tab.FavoritesNavigationController {
             if (editingStyle == UITableViewCellEditingStyle.Delete) {
-                print("delete")
+                sharedContext.deleteObject(items[indexPath.row] as NSManagedObject)
+                items.removeAtIndex(indexPath.row)
+                self.saveSharedContext()
             }
         }
+        
+        itemsTable.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         
     }
     
@@ -198,6 +204,17 @@ class BrowseViewController: UITableViewController {
             completion(data: data, response: response, error: error)
             }.resume()
         
+    }
+    
+    func saveSharedContext() {
+        dispatch_async(dispatch_get_main_queue(), {
+            do {
+                try self.sharedContext.save()
+            } catch let error as NSError {
+                print("Error saving item.")
+                print(error)
+            }
+        })
     }
     
 }
