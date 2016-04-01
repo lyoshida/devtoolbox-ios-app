@@ -277,10 +277,10 @@
             </objects>
             <point key="canvasLocation" x="2095" y="1145"/>
         </scene>
-        <!--Account-->
+        <!--About-->
         <scene sceneID="xXZ-dK-heg">
             <objects>
-                <viewController title="Account" id="9oS-ff-0jv" customClass="LoginViewController" customModule="devToolBox" sceneMemberID="viewController">
+                <viewController title="About" id="9oS-ff-0jv" customClass="AboutViewController" customModule="devToolBox" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AR4-4f-u2g"/>
                         <viewControllerLayoutGuide type="bottom" id="glA-SX-EPR"/>
@@ -302,68 +302,37 @@
                                     <constraint firstAttribute="height" constant="30" id="XKk-gI-Ho6"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U30-jE-WnD" userLabel="loginBoxView">
-                                <rect key="frame" x="123" y="98" width="355" height="166"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EST-ZO-Rt3">
-                                        <rect key="frame" x="145" y="112" width="65" height="30"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Sign in">
-                                            <color key="titleColor" red="0.1019607843" green="0.2156862745" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="login:" destination="9oS-ff-0jv" eventType="touchUpInside" id="bpY-TZ-yeS"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vwf-E0-z0L">
-                                        <rect key="frame" x="20" y="62" width="315" height="30"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gZo-TL-zVQ">
-                                        <rect key="frame" x="20" y="24" width="315" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.089968950320512817" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="EST-ZO-Rt3" firstAttribute="centerX" secondItem="U30-jE-WnD" secondAttribute="centerX" id="8Tz-uO-B16"/>
-                                    <constraint firstItem="gZo-TL-zVQ" firstAttribute="centerX" secondItem="U30-jE-WnD" secondAttribute="centerX" id="NyT-0K-4l5"/>
-                                    <constraint firstItem="Vwf-E0-z0L" firstAttribute="centerX" secondItem="U30-jE-WnD" secondAttribute="centerX" id="mfW-oA-b7Y"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akX-Ww-AFQ">
-                                <rect key="frame" x="60" y="282" width="481" height="64"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="EIl-Jh-fhH">
-                                <rect key="frame" x="290" y="297" width="20" height="20"/>
-                            </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iW3-Yb-7e4">
+                                <rect key="frame" x="123" y="135" width="354" height="126"/>
+                                <string key="text">devToolBox is a database of resources you can use in your software and/or design projects.
+
+You can find plugins, frameworks, libraries, icons, webapps, services and tools that you can use in your projects and improve your workflow.</string>
+                                <color key="textColor" red="0.93383049240000005" green="0.93383049240000005" blue="0.93383049240000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6SU-no-vbd">
+                                <rect key="frame" x="203" y="269" width="195" height="30"/>
+                                <state key="normal" title="Visit www.devToolBox.co">
+                                    <color key="titleColor" red="0.93383049240000005" green="0.93383049240000005" blue="0.93383049240000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openWebsite:" destination="9oS-ff-0jv" eventType="touchUpInside" id="G8W-jL-y7e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1019607843" green="0.2156862745" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="akX-Ww-AFQ" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="IJC-YF-G9b"/>
+                            <constraint firstItem="6SU-no-vbd" firstAttribute="top" secondItem="iW3-Yb-7e4" secondAttribute="bottom" constant="8" id="06A-eb-5X0"/>
+                            <constraint firstItem="6SU-no-vbd" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="6C8-vt-S2M"/>
                             <constraint firstItem="irw-Si-kQh" firstAttribute="top" secondItem="VlK-LE-SOO" secondAttribute="bottom" constant="8" id="MKd-aG-oiP"/>
-                            <constraint firstItem="akX-Ww-AFQ" firstAttribute="top" secondItem="U30-jE-WnD" secondAttribute="bottom" constant="18" id="NLX-UO-8CE"/>
-                            <constraint firstItem="EIl-Jh-fhH" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="mgv-px-A6K"/>
                             <constraint firstItem="VlK-LE-SOO" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="qDc-Sk-MEh"/>
                             <constraint firstItem="irw-Si-kQh" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="snD-kQ-iyd"/>
-                            <constraint firstItem="U30-jE-WnD" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="wxC-uQ-Bia"/>
+                            <constraint firstItem="iW3-Yb-7e4" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="yaC-VJ-Wru"/>
+                            <constraint firstItem="iW3-Yb-7e4" firstAttribute="top" secondItem="irw-Si-kQh" secondAttribute="bottom" constant="45" id="zhQ-sd-AH4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" image="user" selectedImage="user" id="dcI-Cc-GhN"/>
-                    <connections>
-                        <outlet property="activityIndicator" destination="EIl-Jh-fhH" id="iZ5-YZ-Ie4"/>
-                        <outlet property="emailTextField" destination="gZo-TL-zVQ" id="h1M-wM-oed"/>
-                        <outlet property="loginStatusLabel" destination="akX-Ww-AFQ" id="MbW-uk-ZpO"/>
-                        <outlet property="passwordTextField" destination="Vwf-E0-z0L" id="jnl-7l-3JN"/>
-                        <outlet property="signInButton" destination="EST-ZO-Rt3" id="Sju-7d-bHl"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" tag="-3" title="About" image="info" id="dcI-Cc-GhN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbN-7a-rhW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -397,8 +366,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="Fak-RF-Ww8" kind="relationship" relationship="viewControllers" id="mpz-bh-ckN"/>
-                        <segue destination="9oS-ff-0jv" kind="relationship" relationship="viewControllers" id="bFh-TW-cQa"/>
                         <segue destination="vQg-Vu-4C6" kind="relationship" relationship="viewControllers" id="eT8-VC-a9K"/>
+                        <segue destination="9oS-ff-0jv" kind="relationship" relationship="viewControllers" id="bFh-TW-cQa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEg-az-qW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -408,8 +377,8 @@
     </scenes>
     <resources>
         <image name="browse" width="25" height="25"/>
+        <image name="info" width="50" height="50"/>
         <image name="logo" width="128" height="128"/>
-        <image name="user" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vhr-gp-NLX"/>
