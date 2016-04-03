@@ -69,7 +69,7 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
         }
         
         
-        // Adds a right bar button on the ItemDetailView
+        // Adds a right bar button on the ItemDetailView (trash icon if the current tab is the favorite tab)
         let itemManager = ItemManager()
         itemManager.getFavoriteItems()
         if itemManager.isFavoriteItem(self.item!.name_slug!) {
@@ -90,16 +90,17 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
         viewWebSite()
     }
     
+    
     func saveFavorite() {
-        
         self.item = convertItemToSharedContext(self.item!)
         self.saveSharedContext()
-        showAlertView()
-        
+        showSavedAlertView()
     }
     
     func removeFavorite() {
-        // TODO: implement
+        sharedContext.deleteObject(self.item!)
+        self.saveSharedContext()
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
@@ -118,9 +119,7 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
     }
     
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
-        
         controller.dismissViewControllerAnimated(true, completion: nil)
-        
     }
     
     func saveSharedContext() {
@@ -134,6 +133,7 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
         })
     }
     
+    // Create an item for the current context
     func convertItemToSharedContext(item: Item) -> Item {
         
         var dictionary = [String:AnyObject]()
@@ -157,7 +157,8 @@ class ItemDetailViewController: UIViewController, SFSafariViewControllerDelegate
 
     }
     
-    func showAlertView() {
+    // Show Alert View when the item is saved.
+    func showSavedAlertView() {
         let alertController = UIAlertController(title: "Favorite", message: "This item was saved in your favorite list", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)

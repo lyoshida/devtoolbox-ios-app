@@ -21,12 +21,14 @@ class BrowseViewController: UITableViewController {
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }
     
+    // scratch context
     lazy var scratchContext: NSManagedObjectContext = {
         var context = NSManagedObjectContext()
         context.persistentStoreCoordinator =  CoreDataStackManager.sharedInstance().persistentStoreCoordinator
         return context
     }()
     
+    // Identifies what's the current tab (favorites or browse)
     var selectedTab: Tab? {
         if self.navigationController?.restorationIdentifier == "BrowseNavigationController" {
             return Tab.BrowseNavigationController
@@ -127,6 +129,7 @@ class BrowseViewController: UITableViewController {
         
     }
     
+    // For the favorite tab, the table view displays the delete option
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         
         if selectedTab == Tab.BrowseNavigationController {
@@ -168,7 +171,7 @@ class BrowseViewController: UITableViewController {
         Client.sharedInstance.taskForGETMethod(Client.Constants.baseUrl + Client.Methods.recentItems, parameters: params) { result, error in
             
             if error != nil {
-                print(error)
+                self.showErrorAlertView()
             } else {
                 if let results = result as? [[String: AnyObject]] {
                     for result in results {
@@ -215,6 +218,14 @@ class BrowseViewController: UITableViewController {
                 print(error)
             }
         })
+    }
+    
+    
+    // Displays an error message
+    func showErrorAlertView() {
+        let alertController = UIAlertController(title: "Favorite", message: "There was a problem retrieving the items.", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
 }
