@@ -303,7 +303,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iW3-Yb-7e4">
-                                <rect key="frame" x="123" y="135" width="354" height="126"/>
+                                <rect key="frame" x="47" y="135" width="507" height="328"/>
                                 <string key="text">devToolBox is a database of resources you can use in your software and/or design projects.
 
 You can find plugins, frameworks, libraries, icons, webapps, services and tools that you can use in your projects and improve your workflow.</string>
@@ -312,7 +312,7 @@ You can find plugins, frameworks, libraries, icons, webapps, services and tools 
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6SU-no-vbd">
-                                <rect key="frame" x="203" y="269" width="195" height="30"/>
+                                <rect key="frame" x="203" y="499" width="195" height="30"/>
                                 <state key="normal" title="Visit www.devToolBox.co">
                                     <color key="titleColor" red="0.93383049240000005" green="0.93383049240000005" blue="0.93383049240000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -325,7 +325,9 @@ You can find plugins, frameworks, libraries, icons, webapps, services and tools 
                         <constraints>
                             <constraint firstItem="6SU-no-vbd" firstAttribute="top" secondItem="iW3-Yb-7e4" secondAttribute="bottom" constant="8" id="06A-eb-5X0"/>
                             <constraint firstItem="6SU-no-vbd" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="6C8-vt-S2M"/>
+                            <constraint firstItem="iW3-Yb-7e4" firstAttribute="leading" secondItem="Fr1-En-G5r" secondAttribute="leadingMargin" constant="20" id="H33-Hv-4RC"/>
                             <constraint firstItem="irw-Si-kQh" firstAttribute="top" secondItem="VlK-LE-SOO" secondAttribute="bottom" constant="8" id="MKd-aG-oiP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iW3-Yb-7e4" secondAttribute="trailing" constant="20" id="bkV-Hf-RH2"/>
                             <constraint firstItem="VlK-LE-SOO" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="qDc-Sk-MEh"/>
                             <constraint firstItem="irw-Si-kQh" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="snD-kQ-iyd"/>
                             <constraint firstItem="iW3-Yb-7e4" firstAttribute="centerX" secondItem="Fr1-En-G5r" secondAttribute="centerX" id="yaC-VJ-Wru"/>
