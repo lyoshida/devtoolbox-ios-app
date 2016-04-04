@@ -53,6 +53,10 @@ class BrowseViewController: UITableViewController {
         
         if selectedTab == Tab.BrowseNavigationController {
             self.loadItems()
+            
+            self.refreshControl = UIRefreshControl()
+            self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+            self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         }
         
     }
@@ -191,6 +195,11 @@ class BrowseViewController: UITableViewController {
         
     }
     
+    func refresh(sender: AnyObject) {
+        self.page = 1
+        self.loadItems()
+        self.refreshControl!.endRefreshing()
+    }
     
     // Helper methods
     
